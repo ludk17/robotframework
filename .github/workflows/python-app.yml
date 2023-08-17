@@ -30,3 +30,6 @@ jobs:
       - name: Run RobotFramework
         run: |
           robot  --outputdir results robots/my_first_robot.robot
+      - name: Upload result to qMetry
+        run: |
+          curl -X POST -H "project: QTM" -H "apiKey: Y6449DMf1VTHJX5OSG9psNpkL44BGAxmegm1cPBj" -F "entityType=ROBOT" -F "file=@results/output.xml" https://testmanagement.qmetry.com/rest/import/createandscheduletestresults/1
